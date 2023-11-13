@@ -4,7 +4,7 @@
     <OrbitControls />
     <Suspense>
       <GLTFModel
-        path="https://raw.githubusercontent.com/szymon-bosiak/3D_Portfolio/main/src/assets/space_boi.gltf"
+        path="https://raw.githubusercontent.com/szymon-bosiak/3D_Portfolio/main/src/assets/scene.gltf"
         draco
       />
     </Suspense>
