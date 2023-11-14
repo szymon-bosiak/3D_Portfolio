@@ -1,30 +1,23 @@
 <template>
-  <TresCanvas shadows window-size>
-    <TresPerspectiveCamera :position="[6, 4, 8]"/>
-    <CameraControls
-      v-bind="controlsState"
-      make-default
-    />
-    <Suspense>
-      <GLTFModel
-      :position="[0, -3, 0]"
-        path="https://raw.githubusercontent.com/szymon-bosiak/3D_Portfolio/main/src/assets/scene.gltf"
-        draco
-      />
-    </Suspense>
-    <!-- <TresGridHelper /> -->
-  </TresCanvas>
+  <div>
+    <nav
+      class="text-off-white absolute z-10 flex h-16 w-full items-center justify-between px-4"
+    >
+      <div>
+        <h2 class="select-none text-3xl">Szymon Bosiak</h2>
+      </div>
+      <div class="flex gap-5 text-xl">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+    <div class="h-screen w-full">
+      <Scene />
+    </div>
+  </div>
 </template>
 
 <script setup>
-import { reactive } from 'vue'
-import { TresCanvas } from "@tresjs/core";
-import { CameraControls, GLTFModel } from "@tresjs/cientos";
-
-const controlsState = reactive({
-  minDistance: 8,
-  maxDistance: 11,
-  minPolarAngle: (Math.PI/3),
-  maxPolarAngle: (Math.PI/2.2),
-})
+import Scene from "./components/Scene.vue";
 </script>

@@ -4,20 +4,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "accent-1": "#0C1117",
-        "pale-blue": "#e6f1ff",
-        background: "#CFCFCF",
-        "grey-light": "#E7E7E9",
-        "grey-mid": "#D2D3D5",
-        "grey-dark": "#3B3B3D",
-        "red-accent": "#C81E1E",
+        "off-white": "#EDE9E9",
       },
       fontSize: {
-        "xxs": "9px",
+        xxs: "9px",
       },
     },
     fontFamily: {
       Roboto: ["Roboto, sans-serif"],
+      SpaceMono: ["Space Mono, monospace"],
     },
     screens: {
       xs: "580px",
@@ -30,4 +25,3 @@ module.exports = {
   },
   plugins: [require("tailwind-scrollbar")({ nocompatible: true })],
 };
-
