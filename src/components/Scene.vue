@@ -1,15 +1,18 @@
 <template>
+  <img src="../assets/chat.svg" class="absolute z-10 w-60 h-60 top-[12%] left-[52%]">
   <TresCanvas shadows>
-    <TresPerspectiveCamera :position="[0, 2, 14]" />
+    <TresPerspectiveCamera
+      :position="[0, 2, 14]"
+      :args="[55, 1 / 4, 0.1, 1000]"
+    />
     <Suspense>
       <GLTFModel
-        :position="[0, -1, 4]"
+        :position="[0, 0, 4]"
         ref="cameraRef"
         path="https://raw.githubusercontent.com/szymon-bosiak/3D_Portfolio/main/src/assets/scene.gltf"
         draco
       />
     </Suspense>
-    <!-- <TresGridHelper /> -->
   </TresCanvas>
 </template>
 
