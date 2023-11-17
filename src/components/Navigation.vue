@@ -8,11 +8,9 @@
       </div>
 
       <!-- Mobile menu -->
-      <div @click="toggleMenu()" class="h-10 w-10 bg-off-white">
-        <div
-          class="shapeshifter play"
-          :style="{backgroundImage: 'url('../assets/sprite_60fps.svg')' }"
-        ></div>
+      <div @click="toggleMenu()" class="bg-black shapeshifter play backgroundSVG">
+
+
       </div>
 
       <!-- Desktop menu -->
@@ -90,22 +88,37 @@ const animateContact = () => {
 </script>
 
 <style lang="css">
-@keyframes play60 {
+@keyframes play60forwards {
   0% {
     background-position: 0px 0px;
   }
   100% {
-    background-position: -57600px 0px;
+    background-position: -1800px 0px;
   }
 }
+
+@keyframes play60reverse {
+  0% {
+    background-position: -1800px 0px;
+  }
+  100% {
+    background-position: 0px 0px;
+  }
+}
+
+.backgroundSVG {
+  background-image: url("../assets/sprite_60fps.svg")
+}
+
 .shapeshifter {
-  animation-duration: 1000ms;
-  animation-timing-function: steps(60);
-  width: 960px;
-  height: 960px;
+  animation-duration: 350ms;
+  animation-timing-function: steps(45);
+  animation-fill-mode: forwards;
+  width: 40px;
+  height: 40px;
   background-repeat: no-repeat;
 }
 .shapeshifter.play {
-  animation-name: play60;
+  animation-name: play60reverse;
 }
 </style>
