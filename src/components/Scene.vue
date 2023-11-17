@@ -1,15 +1,17 @@
 <template>
+  <div class="absolute xl:hidden z-30 w-full h-full "></div>
   <div
     class="absolute left-[52%] top-[12%] z-10 flex h-60 w-60 select-none items-center justify-center"
   >
+  
     <img src="../assets/chat.svg" />
     <p class="absolute text-off-white">
       Hello Stranger. <br />
-      Welcome on my <br />website.
+      Welcome to my <br />website.
     </p>
   </div>
 
-  <TresCanvas shadows>
+  <TresCanvas>
     <TresPerspectiveCamera
       :position="[0, 2, 14]"
       :args="[55, 1 / 4, 0.1, 1000]"
@@ -17,6 +19,8 @@
     <Suspense>
       <GLTFModel
         :position="[0, 0, 4]"
+        :rotation-x="0.3"
+        :rotation-y="-0.7"
         ref="cameraRef"
         path="https://raw.githubusercontent.com/szymon-bosiak/3D_Portfolio/main/src/assets/scene.gltf"
         draco
@@ -76,28 +80,28 @@ import { TresCanvas, useRenderLoop } from "@tresjs/core";
 import { GLTFModel } from "@tresjs/cientos";
 import { useMouse } from "@vueuse/core";
 
-const { x, y } = useMouse();
+const { x, y, sourceType } = useMouse();
 
 const cameraRef = shallowRef();
 
 const { onLoop } = useRenderLoop();
 
 onLoop(() => {
-  if (cameraRef.value) {
+  if (cameraRef.value && sourceType.value === 'mouse' ) {
     cameraRef.value.value.rotation.y = x.value / 10000 - 0.7;
     cameraRef.value.value.rotation.x = y.value / 40000 + 0.3;
   }
 });
 
 onLoop(() => {
-  if (cameraRef.value) {
+  if (cameraRef.value && sourceType.value === 'mouse' ) {
     cameraRef.value.value.rotation.y += 0.05;
     cameraRef.value.value.rotation.x += 0.05;
   }
 });
 
 onLoop(() => {
-  if (cameraRef.value) {
+  if (cameraRef.value && sourceType.value === 'mouse' ) {
     cameraRef.value.value.rotation.y -= 0.05;
     cameraRef.value.value.rotation.x -= 0.05;
   }

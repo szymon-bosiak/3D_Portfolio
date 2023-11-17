@@ -6,7 +6,17 @@
       <div>
         <h2 class="select-none text-4xl">Szymon Bosiak</h2>
       </div>
-      <div class="flex gap-5 text-2xl">
+
+      <!-- Mobile menu -->
+      <div @click="toggleMenu()" class="h-10 w-10 bg-off-white">
+        <div
+          class="shapeshifter play"
+          :style="{backgroundImage: 'url('../assets/sprite_60fps.svg')' }"
+        ></div>
+      </div>
+
+      <!-- Desktop menu -->
+      <div class="hidden gap-5 text-2xl md:flex">
         <div class="relative">
           <a
             @mouseenter="animateAbout"
@@ -56,6 +66,13 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
+const closed = ref(true);
+
+const toggleMenu = () => {
+  closed.value = !closed.value;
+};
+
 const animateAbout = () => {
   document.querySelector("#aboutButton").classList.toggle("-translate-y-6");
   document.querySelector("#aboutButton").classList.toggle("bg-black");
@@ -71,3 +88,24 @@ const animateContact = () => {
   document.querySelector("#contactButton").classList.toggle("bg-black");
 };
 </script>
+
+<style lang="css">
+@keyframes play60 {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: -57600px 0px;
+  }
+}
+.shapeshifter {
+  animation-duration: 1000ms;
+  animation-timing-function: steps(60);
+  width: 960px;
+  height: 960px;
+  background-repeat: no-repeat;
+}
+.shapeshifter.play {
+  animation-name: play60;
+}
+</style>
