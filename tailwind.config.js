@@ -15,6 +15,7 @@ module.exports = {
       SpaceMono: ["Space Mono, monospace"],
     },
     screens: {
+      xxs: "465px",
       xs: "580px",
       sm: "640px",
       md: "800px",

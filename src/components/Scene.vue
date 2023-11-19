@@ -1,10 +1,19 @@
 <template>
-  <div class="absolute xl:hidden z-30 w-full h-full "></div>
+  <div class="absolute z-30 h-full w-full xl:hidden"></div>
   <div
-    class="absolute left-[52%] top-[12%] z-10 flex h-60 w-60 select-none items-center justify-center"
+    class="left-[52%] top-[12%] z-10 hidden h-60 w-60 select-none items-center justify-center md:absolute md:flex"
   >
-  
     <img src="../assets/chat.svg" />
+    <p class="absolute text-off-white">
+      Hello Stranger. <br />
+      Welcome to my <br />website.
+    </p>
+  </div>
+
+  <div
+    class="md:hidden absolute left-[35%] top-[8%] xxs:left-[42%] xxs:top-[9%] z-10 flex h-60 w-48 select-none items-center justify-center"
+  >
+    <img src="../assets/chat_mobile.svg" />
     <p class="absolute text-off-white">
       Hello Stranger. <br />
       Welcome to my <br />website.
@@ -32,7 +41,7 @@
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 283.5 27.8"
       preserveAspectRatio="none"
-      class="absolute h-[80px] w-full -translate-y-[80px] rotate-180"
+      class="absolute h-[80px] w-full -translate-y-[78px] rotate-180"
     >
       <path
         style="fill: #ede9e9"
@@ -87,21 +96,21 @@ const cameraRef = shallowRef();
 const { onLoop } = useRenderLoop();
 
 onLoop(() => {
-  if (cameraRef.value && sourceType.value === 'mouse' ) {
+  if (cameraRef.value && sourceType.value === "mouse") {
     cameraRef.value.value.rotation.y = x.value / 10000 - 0.7;
     cameraRef.value.value.rotation.x = y.value / 40000 + 0.3;
   }
 });
 
 onLoop(() => {
-  if (cameraRef.value && sourceType.value === 'mouse' ) {
+  if (cameraRef.value && sourceType.value === "mouse") {
     cameraRef.value.value.rotation.y += 0.05;
     cameraRef.value.value.rotation.x += 0.05;
   }
 });
 
 onLoop(() => {
-  if (cameraRef.value && sourceType.value === 'mouse' ) {
+  if (cameraRef.value && sourceType.value === "mouse") {
     cameraRef.value.value.rotation.y -= 0.05;
     cameraRef.value.value.rotation.x -= 0.05;
   }
