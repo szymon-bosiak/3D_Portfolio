@@ -1,47 +1,30 @@
 <template>
-  <div class="absolute z-30 h-full w-full xl:hidden"></div>
-  <div
-    class="left-[52%] top-[12%] z-10 hidden h-60 w-60 select-none items-center justify-center md:absolute md:flex"
-  >
-    <img src="../../public/images/chat.svg" />
-    <p class="absolute text-off-white">
-      Hello Stranger. <br />
-      Welcome to my <br />website.
-    </p>
+  <div id="about" class="flex w-full flex-col items-center justify-center bg-off-white min-h-[460px]">
+    <div class="max-w-4xl">
+      <div class="flex flex-col justify-center gap-4 px-8 py-6 text-black">
+        <h2 class="text-lg font-bold">// About me</h2>
+        <p>
+          I'm a passionate front-end web developer with a keen eye for
+          aesthetics. I believe in the power of clean, user-friendly design to
+          elevate the digital experience. Constantly fueled by a curiosity for
+          learning.
+        </p>
+        <p>
+          Beyond coding, you'll often find me immersed in the world of music
+          discovery - always on the lookout for the perfect soundtrack to
+          accompany my coding sessions. When I'm not crafting pixel-perfect
+          websites, you can catch me at the gym, where I find both physical and
+          mental rejuvenation.
+        </p>
+      </div>
+    </div>
   </div>
-
-  <div
-    class="md:hidden absolute left-[35%] top-[8%] xxs:left-[42%] xxs:top-[9%] z-10 flex h-60 w-48 select-none items-center justify-center"
-  >
-    <img src="../../public/images/chat_mobile.svg" />
-    <p class="absolute text-off-white">
-      Hello Stranger. <br />
-      Welcome to my <br />website.
-    </p>
-  </div>
-
-  <TresCanvas>
-    <TresPerspectiveCamera
-      :position="[0, 2, 14]"
-      :args="[55, 1 / 4, 0.1, 1000]"
-    />
-    <Suspense>
-      <GLTFModel
-        :position="[0, 0, 4]"
-        :rotation-x="0.3"
-        :rotation-y="-0.7"
-        ref="cameraRef"
-        path="../../public/images/scene.gltf"
-        draco
-      />
-    </Suspense>
-  </TresCanvas>
   <div>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 283.5 27.8"
       preserveAspectRatio="none"
-      class="absolute h-[80px] w-full -translate-y-[78px] rotate-180"
+      class="h-[70px] w-full scale-x-100 bg-black"
     >
       <path
         style="fill: #ede9e9"
@@ -83,36 +66,4 @@
   </div>
 </template>
 
-<script setup>
-import { shallowRef } from "vue";
-import { TresCanvas, useRenderLoop } from "@tresjs/core";
-import { GLTFModel } from "@tresjs/cientos";
-import { useMouse } from "@vueuse/core";
-
-const { x, y, sourceType } = useMouse();
-
-const cameraRef = shallowRef();
-
-const { onLoop } = useRenderLoop();
-
-onLoop(() => {
-  if (cameraRef.value && sourceType.value === "mouse") {
-    cameraRef.value.value.rotation.y = x.value / 10000 - 0.7;
-    cameraRef.value.value.rotation.x = y.value / 40000 + 0.3;
-  }
-});
-
-onLoop(() => {
-  if (cameraRef.value && sourceType.value === "mouse") {
-    cameraRef.value.value.rotation.y += 0.05;
-    cameraRef.value.value.rotation.x += 0.05;
-  }
-});
-
-onLoop(() => {
-  if (cameraRef.value && sourceType.value === "mouse") {
-    cameraRef.value.value.rotation.y -= 0.05;
-    cameraRef.value.value.rotation.x -= 0.05;
-  }
-});
-</script>
+<script setup></script>
