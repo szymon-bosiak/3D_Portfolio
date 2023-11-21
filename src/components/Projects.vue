@@ -1,9 +1,9 @@
 <template>
   <div
     id="projects"
-    class="flex justify-center bg-black bg-[url('../../public/images/stars.svg')] bg-cover "
+    class="flex justify-center bg-black bg-[url('/images/stars.svg')] bg-cover"
   >
-    <div class="max-w-4xl text-off-white w-full px-8 py-8">
+    <div class="w-full max-w-4xl px-8 py-8 text-off-white">
       <h2 class="mb-6 text-lg font-bold">// Projects</h2>
       <div class="flex items-center gap-4">
         <h3 class="font-outline font-bold">Tech stack:</h3>
@@ -20,10 +20,10 @@
             @mouseleave="popInfo(item.id)"
           />
           <div
-            class="absolute -top-[68px] flex w-[120px] h-[60px] select-none items-center justify-center  opacity-0 bg-[url('../../public/images/pop.svg')] bg-no-repeat bg-cover"
+            class="hidden absolute -top-[68px] xxs:flex h-[60px] w-[120px] select-none items-center justify-center bg-[url('/images/pop.svg')] bg-cover bg-no-repeat opacity-0"
             :id="'pop_' + item.id"
           >
-            <p class="text-black w-full px-2 text-center -translate-y-1">
+            <p class="w-full -translate-y-1 px-2 text-center text-black">
               {{ item.name }}
             </p>
           </div>
@@ -36,27 +36,27 @@
 <script setup>
 const techStack = [
   {
-    img: "../../public/images/vue.svg",
+    img: "/images/vue.svg",
     name: "Vue.js",
     id: "vue",
   },
   {
-    img: "../../public/images/react.svg",
+    img: "/images/react.svg",
     name: "React.js",
     id: "react",
   },
   {
-    img: "../../public/images/js.svg",
+    img: "/images/js.svg",
     name: "JavaScript",
     id: "js",
   },
   {
-    img: "../../public/images/tailwind.svg",
+    img: "/images/tailwind.svg",
     name: "Tailwind",
     id: "tailwind",
   },
   {
-    img: "../../public/images/sass.svg",
+    img: "/images/sass.svg",
     name: "SCSS",
     id: "scss",
   },

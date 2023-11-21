@@ -3,7 +3,7 @@
   <div
     class="left-[52%] top-[12%] z-10 hidden h-60 w-60 select-none items-center justify-center md:absolute md:flex"
   >
-    <img src="../../public/images/chat.svg" />
+    <img src="/images/chat.svg" />
     <p class="absolute text-off-white">
       Hello Stranger. <br />
       Welcome to my <br />website.
@@ -13,7 +13,7 @@
   <div
     class="md:hidden absolute left-[35%] top-[8%] xxs:left-[42%] xxs:top-[9%] z-10 flex h-60 w-48 select-none items-center justify-center"
   >
-    <img src="../../public/images/chat_mobile.svg" />
+    <img src="/images/chat_mobile.svg" />
     <p class="absolute text-off-white">
       Hello Stranger. <br />
       Welcome to my <br />website.
@@ -31,7 +31,7 @@
         :rotation-x="0.3"
         :rotation-y="-0.7"
         ref="cameraRef"
-        path="../../public/images/scene.gltf"
+        path="/images/scene.gltf"
         draco
       />
     </Suspense>
