@@ -1,7 +1,7 @@
 <template>
   <div
     id="projects"
-    class="flex justify-center bg-black bg-[url('/images/stars.svg')] bg-cover"
+    class="flex justify-center bg-black bg-[url('/images/stars.svg')] bg-repeat-y"
   >
     <div class="w-full max-w-4xl px-8 py-8 text-off-white">
       <h2 class="mb-6 text-lg font-bold">// Projects</h2>
@@ -36,7 +36,7 @@
           @mouseenter="fileSelect(i)"
             @mouseleave="fileSelect(i)"
             
-          class="mb-6 flex max-w-max flex-col text-black transition hover:scale-105"
+          class="mb-6 flex max-w-max flex-col text-black transition duration-500 hover:scale-105"
         >
           <div class="flex w-full" :class="{ 'justify-end': i % 2 !== 1 }">
             <h2 class="clip w-max bg-off-white px-5 text-lg font-bold translate-y-[1px]">
@@ -49,7 +49,7 @@
                 :src="project.img"
                 :id="'file_' + i"
                 alt="project screenshot"
-                class="w-[550px] shadow contrast-125 grayscale transition"
+                class="w-[550px] shadow contrast-125 grayscale transition duration-500"
               />
               <div
                 class="absolute -left-1.5 -top-1.5 h-10 w-10 border-l-2 border-t-2 border-black"
@@ -95,6 +95,11 @@
             </div>
           </div>
         </div>
+
+        <div class="w-full h-full">
+          <img src="/images/cabinet.svg" alt="">
+        </div>
+
       </div>
     </div>
   </div>
