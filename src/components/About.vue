@@ -4,22 +4,24 @@
       id="about"
       class="flex min-h-[460px] w-full flex-col items-center justify-center bg-off-white"
     >
-      <div class="max-w-4xl">
+      <div class="max-w-4xl 2xl:max-w-[1800px]">
         <div class="flex flex-col justify-center gap-4 px-8 py-6 text-black">
           <h2 class="text-lg font-bold">// About me</h2>
-          <p>
-            I'm a passionate front-end web developer with a keen eye for
-            aesthetics. I believe in the power of clean, user-friendly design to
-            elevate the digital experience. Constantly fueled by a curiosity for
-            learning.
-          </p>
-          <p>
-            Beyond coding, you'll often find me immersed in the world of music
-            discovery - always on the lookout for the perfect soundtrack to
-            accompany my coding sessions. When I'm not crafting pixel-perfect
-            websites, you can catch me at the gym, where I find both physical
-            and mental rejuvenation.
-          </p>
+          <div class="lg:w-5/6 2xl:w-4/6 flex flex-col gap-4">
+            <p>
+              I'm a passionate front-end web developer with a keen eye for
+              aesthetics. I believe in the power of clean, user-friendly design
+              to elevate the digital experience. Constantly fueled by a
+              curiosity for learning.
+            </p>
+            <p>
+              Beyond coding, you'll often find me immersed in the world of music
+              discovery - always on the lookout for the perfect soundtrack to
+              accompany my coding sessions. When I'm not crafting pixel-perfect
+              websites, you can catch me at the gym, where I find both physical
+              and mental rejuvenation.
+            </p>
+          </div>
         </div>
       </div>
     </div>

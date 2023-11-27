@@ -3,7 +3,7 @@
     id="projects"
     class="flex justify-center bg-black bg-[url('/images/stars.svg')] bg-repeat-y"
   >
-    <div class="w-full max-w-4xl px-8 py-8 text-off-white">
+    <div class="w-full max-w-4xl 2xl:max-w-[1800px] px-8 py-8 text-off-white">
       <h2 class="mb-6 text-lg font-bold">// Projects</h2>
       <div class="mb-6 flex items-center gap-4">
         <h3 class="font-outline font-bold">Tech stack:</h3>
@@ -30,16 +30,17 @@
         </div>
       </div>
 
-      <div class="w-full flex flex-col items-center">
+      <div class="flex w-full flex-col items-center 2xl:grid 2xl:grid-cols-2 2xl:gap-14">
         <div
           v-for="(project, i) in projects"
           @mouseenter="fileSelect(i)"
-            @mouseleave="fileSelect(i)"
-            
-          class="mb-6 flex max-w-max flex-col text-black transition duration-500 hover:scale-105"
+          @mouseleave="fileSelect(i)"
+          class="pb-6 m-auto flex max-w-max flex-col text-black transition duration-500 hover:scale-105"
         >
           <div class="flex w-full" :class="{ 'justify-end': i % 2 !== 1 }">
-            <h2 class="clip w-max bg-off-white px-5 text-lg font-bold translate-y-[1px]">
+            <h2
+              class="clip w-max translate-y-[1px] bg-off-white px-5 text-lg font-bold"
+            >
               {{ project.name }}
             </h2>
           </div>
@@ -96,10 +97,9 @@
           </div>
         </div>
 
-        <div class="w-full h-full">
-          <img src="/images/cabinet.svg" alt="">
+        <div class="h-full w-full">
+          <img src="/images/cabinet.svg" alt="" />
         </div>
-
       </div>
     </div>
   </div>
@@ -180,11 +180,11 @@ const popInfo = (id) => {
 };
 
 const fileSelect = (i) => {
-  const fileId = "file_" + i
+  const fileId = "file_" + i;
   const animateFile = document.querySelector("#" + fileId);
   animateFile.classList.toggle("grayscale-0");
   animateFile.classList.toggle("contrast-100");
-}
+};
 </script>
 
 <style>

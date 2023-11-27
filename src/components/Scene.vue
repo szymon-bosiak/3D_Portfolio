@@ -11,7 +11,7 @@
   </div>
 
   <div
-    class="md:hidden absolute left-[35%] top-[8%] xxs:left-[42%] xxs:top-[9%] z-10 flex h-60 w-48 select-none items-center justify-center"
+    class="absolute left-[35%] top-[8%] z-10 flex h-60 w-48 select-none items-center justify-center xxs:left-[42%] xxs:top-[9%] md:hidden"
   >
     <img src="/images/chat_mobile.svg" />
     <p class="absolute text-off-white">

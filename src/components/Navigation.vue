@@ -13,7 +13,7 @@
       <div class="relative z-20 md:hidden">
         <div
           @click="toggleMenu()"
-          class="shapeshifter backgroundSVG bg-transparent"
+          class="shapeshifter backgroundSVG bg-transparent cursor-pointer"
           id="hamburger"
         ></div>
       </div>
@@ -48,7 +48,7 @@
         >
           <a
             @click="toggleMenu()"
-            class="relative -top-16 transition-all duration-100"
+            class="relative -top-16 transition-all duration-100 cursor-pointer"
             :class="{
               'left-[280px]': !isMenuActive,
               'delay-200': isMenuActive,
@@ -58,7 +58,7 @@
           >
           <a
             @click="toggleMenu()"
-            class="relative -top-2 transition-all duration-200"
+            class="relative -top-2 transition-all duration-200 cursor-pointer"
             :class="{
               'left-[224px]': !isMenuActive,
               'delay-200': isMenuActive,
@@ -68,7 +68,7 @@
           >
           <a
             @click="toggleMenu()"
-            class="relative top-14 transition-all duration-300"
+            class="relative top-14 transition-all duration-300 cursor-pointer"
             :class="{
               'left-[152px]': !isMenuActive,
               'delay-200': isMenuActive,

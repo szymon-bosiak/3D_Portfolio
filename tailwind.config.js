@@ -21,7 +21,7 @@ module.exports = {
       md: "800px",
       lg: "1024px",
       xl: "1200px",
-      "2xl": "1536px",
+      "2xl": "1370px",
     },
   },
   plugins: [require("tailwind-scrollbar")({ nocompatible: true })],
