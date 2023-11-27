@@ -29,11 +29,11 @@
             'opacity-0': !isMenuActive,
             'opacity-0': !isMenuActive,
           }"
-          src="/images/circle_no_fill.svg"
+          src="../assets/images/circle_no_fill.svg"
         />
         <img
           class="absolute left-[15px] top-[10px] h-[340px] w-[340px] transition-all duration-300"
-          src="/images/circle.svg"
+          src="../assets/images/circle.svg"
           :class="{
             'rotate-[270deg]': isMenuActive,
             'opacity-1': isMenuActive,
@@ -181,7 +181,7 @@ const animateContact = () => {
 }
 
 .backgroundSVG {
-  background-image: url("/images/sprite_60fps.svg");
+  background-image: url("../assets/images/sprite_60fps.svg");
 }
 
 .shapeshifter {

@@ -3,7 +3,7 @@
   <div
     class="left-[52%] top-[12%] z-10 hidden h-60 w-60 select-none items-center justify-center md:absolute md:flex"
   >
-    <img src="/images/chat.svg" />
+    <img src="../assets/images/chat.svg" />
     <p class="absolute text-off-white">
       Hello Stranger. <br />
       Welcome to my <br />website.
@@ -13,7 +13,7 @@
   <div
     class="absolute left-[35%] top-[8%] z-10 flex h-60 w-48 select-none items-center justify-center xxs:left-[42%] xxs:top-[9%] md:hidden"
   >
-    <img src="/images/chat_mobile.svg" />
+    <img src="../assets/images/chat_mobile.svg" />
     <p class="absolute text-off-white">
       Hello Stranger. <br />
       Welcome to my <br />website.
@@ -31,7 +31,7 @@
         :rotation-x="0.3"
         :rotation-y="-0.7"
         ref="cameraRef"
-        path="/images/scene.gltf"
+        path="/scene.gltf"
         draco
       />
     </Suspense>
@@ -88,6 +88,7 @@ import { shallowRef } from "vue";
 import { TresCanvas, useRenderLoop } from "@tresjs/core";
 import { GLTFModel } from "@tresjs/cientos";
 import { useMouse } from "@vueuse/core";
+
 
 const { x, y, sourceType } = useMouse();
 

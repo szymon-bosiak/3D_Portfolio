@@ -1,7 +1,7 @@
 <template>
   <div
     id="projects"
-    class="flex justify-center bg-black bg-[url('/images/stars.svg')] bg-repeat-y"
+    class="flex justify-center bg-black bg-[url('../assets/images/stars.svg')] bg-repeat-y"
   >
     <div class="w-full max-w-4xl 2xl:max-w-[1800px] px-8 py-8 text-off-white">
       <h2 class="mb-6 text-lg font-bold">// Projects</h2>
@@ -20,7 +20,7 @@
             @mouseleave="popInfo(item.id)"
           />
           <div
-            class="absolute -top-[68px] hidden h-[60px] w-[120px] select-none items-center justify-center bg-[url('/images/pop.svg')] bg-cover bg-no-repeat opacity-0 xxs:flex"
+            class="absolute -top-[68px] hidden h-[60px] w-[120px] select-none items-center justify-center bg-[url('../assets/images/pop.svg')] bg-cover bg-no-repeat opacity-0 xxs:flex"
             :id="'pop_' + item.id"
           >
             <p class="w-full -translate-y-1 px-2 text-center text-black">
@@ -98,7 +98,7 @@
         </div>
 
         <div class="h-full w-full">
-          <img src="/images/cabinet.svg" alt="" />
+          <img src="../assets/images/cabinet.svg" alt="" />
         </div>
       </div>
     </div>
@@ -106,29 +106,41 @@
 </template>
 
 <script setup>
+import imgVue from '../assets/images/vue.svg'
+import imgReact from '../assets/images/react.svg'
+import imgJs from '../assets/images/js.svg'
+import imgTailwind from '../assets/images/tailwind.svg'
+import imgScss from '../assets/images/sass.svg'
+
+import imgMoody from '../assets/images/screenshots/moody.png'
+import imgFakturka from '../assets/images/screenshots/fakturka.png'
+import imgQueis from '../assets/images/screenshots/queistal.jpg'
+import imgGiard from '../assets/images/screenshots/giard.jpg'
+import imgTime from '../assets/images/screenshots/time.png'
+
 const techStack = [
   {
-    img: "/images/vue.svg",
+    img: imgVue,
     name: "Vue.js",
     id: "vue",
   },
   {
-    img: "/images/react.svg",
+    img: imgReact,
     name: "React.js",
     id: "react",
   },
   {
-    img: "/images/js.svg",
+    img: imgJs,
     name: "JavaScript",
     id: "js",
   },
   {
-    img: "/images/tailwind.svg",
+    img: imgTailwind,
     name: "Tailwind",
     id: "tailwind",
   },
   {
-    img: "/images/sass.svg",
+    img: imgScss,
     name: "SCSS",
     id: "scss",
   },
@@ -137,35 +149,35 @@ const techStack = [
 // screenshots are taken form 1400x967 viewport
 const projects = [
   {
-    img: "/images/screenshots/moody.png",
+    img: imgMoody,
     name: "The Moody Cloud",
     desc: "Weather app",
     live: "https://szymon-bosiak.github.io/The_Moody_Cloud/",
     code: "https://github.com/szymon-bosiak/The_Moody_Cloud",
   },
   {
-    img: "/images/screenshots/fakturka.png",
+    img: imgFakturka,
     name: "Fakturka",
     desc: "Invoice template app",
     live: "https://szymon-bosiak.github.io/Fakturka/",
     code: "https://github.com/szymon-bosiak/Fakturka",
   },
   {
-    img: "/images/screenshots/queistal.jpg",
+    img: imgQueis,
     name: "Queis Tal",
     desc: "Wood construction company's landing page",
     live: "https://queistal.pl/",
     code: "https://github.com/szymon-bosiak/queistal",
   },
   {
-    img: "/images/screenshots/giard.jpg",
+    img: imgGiard,
     name: "giarddesign",
     desc: "Gardening company's landing page",
     live: "https://szymon-bosiak.github.io/adRespect/",
     code: "https://github.com/szymon-bosiak/adRespect",
   },
   {
-    img: "/images/screenshots/time.png",
+    img: imgTime,
     name: "Time Management App",
     desc: "ToDo component of planed time management app",
     live: "https://szymon-bosiak.github.io/TimeManagementApp/",

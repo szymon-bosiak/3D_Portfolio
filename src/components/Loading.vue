@@ -15,7 +15,6 @@ onMounted(() => {
   document.onreadystatechange = () => {
     if (document.readyState === "complete") {
       isLoaded.value = !isLoaded.value;
-      console.log(isLoaded.value)
     }
   };
 });
