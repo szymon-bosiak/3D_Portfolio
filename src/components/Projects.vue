@@ -151,14 +151,14 @@ const projects = [
     code: "https://github.com/szymon-bosiak/Fakturka",
   },
   {
-    img: "/images/screenshots/queistal.png",
+    img: "/images/screenshots/queistal.jpg",
     name: "Queis Tal",
     desc: "Wood construction company's landing page",
     live: "https://queistal.pl/",
     code: "https://github.com/szymon-bosiak/queistal",
   },
   {
-    img: "/images/screenshots/giard.png",
+    img: "/images/screenshots/giard.jpg",
     name: "giarddesign",
     desc: "Gardening company's landing page",
     live: "https://szymon-bosiak.github.io/adRespect/",
