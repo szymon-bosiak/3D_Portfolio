@@ -31,7 +31,7 @@
         :rotation-x="0.3"
         :rotation-y="-0.7"
         ref="cameraRef"
-        path="/scene.gltf"
+        path="https://raw.githubusercontent.com/szymon-bosiak/Portfolio/main/src/assets/images/scene.gltf"
         draco
       />
     </Suspense>
