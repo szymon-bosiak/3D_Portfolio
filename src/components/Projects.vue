@@ -166,7 +166,7 @@ const projects = [
     img: imgQueis,
     name: "Queis Tal",
     desc: "Wood construction company's landing page",
-    live: "https://queistal.pl/",
+    live: "https://szymon-bosiak.github.io/queistal/",
     code: "https://github.com/szymon-bosiak/queistal",
   },
   {
