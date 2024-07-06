@@ -4,7 +4,7 @@
       class="absolute z-10 flex h-12 w-full items-center justify-between overflow-x-clip px-6 pt-4 text-off-white"
     >
       <div>
-        <h2 class="xxs:mt-0 mr-[90px] mt-10 select-none text-4xl">
+        <h2 class="mr-[90px] mt-10 select-none text-4xl xxs:mt-0">
           Szymon Bosiak
         </h2>
       </div>
@@ -13,7 +13,7 @@
       <div class="relative z-20 md:hidden">
         <div
           @click="toggleMenu()"
-          class="shapeshifter backgroundSVG bg-transparent cursor-pointer"
+          class="shapeshifter backgroundSVG cursor-pointer bg-transparent"
           id="hamburger"
         ></div>
       </div>
@@ -48,32 +48,35 @@
         >
           <a
             @click="toggleMenu()"
-            class="relative -top-16 transition-all duration-100 cursor-pointer"
+            class="relative -top-16 cursor-pointer transition-all duration-100"
             :class="{
               'left-[280px]': !isMenuActive,
               'delay-200': isMenuActive,
               'left-20': isMenuActive,
             }"
+            href="#about"
             >About</a
           >
           <a
             @click="toggleMenu()"
-            class="relative -top-2 transition-all duration-200 cursor-pointer"
+            class="relative -top-2 cursor-pointer transition-all duration-200"
             :class="{
               'left-[224px]': !isMenuActive,
               'delay-200': isMenuActive,
               'left-6': isMenuActive,
             }"
+            href="#projects"
             >Projects</a
           >
           <a
             @click="toggleMenu()"
-            class="relative top-14 transition-all duration-300 cursor-pointer"
+            class="relative top-14 cursor-pointer transition-all duration-300"
             :class="{
               'left-[152px]': !isMenuActive,
               'delay-200': isMenuActive,
               '-left-12': isMenuActive,
             }"
+            href="#contact"
             >Contact</a
           >
         </div>
