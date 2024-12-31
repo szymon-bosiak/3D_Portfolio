@@ -3,7 +3,7 @@
     id="projects"
     class="flex justify-center bg-black bg-[url('../assets/images/stars.svg')] bg-repeat-y"
   >
-    <div class="w-full max-w-4xl 2xl:max-w-[1800px] px-8 py-8 text-off-white">
+    <div class="w-full max-w-4xl px-8 py-8 text-off-white 2xl:max-w-[1800px]">
       <h2 class="mb-6 text-lg font-bold">// Projects</h2>
       <div class="mb-6 flex items-center gap-4">
         <h3 class="font-outline font-bold">Tech stack:</h3>
@@ -30,12 +30,14 @@
         </div>
       </div>
 
-      <div class="flex w-full flex-col items-center 2xl:grid 2xl:grid-cols-2 2xl:gap-14">
+      <div
+        class="flex w-full flex-col items-center 2xl:grid 2xl:grid-cols-2 2xl:gap-14"
+      >
         <div
           v-for="(project, i) in projects"
           @mouseenter="fileSelect(i)"
           @mouseleave="fileSelect(i)"
-          class="pb-6 m-auto flex max-w-max flex-col text-black transition duration-500 hover:scale-105"
+          class="m-auto flex max-w-max flex-col pb-6 text-black transition duration-500 hover:scale-105"
         >
           <div class="flex w-full" :class="{ 'justify-end': i % 2 !== 1 }">
             <h2
@@ -106,17 +108,17 @@
 </template>
 
 <script setup>
-import imgVue from '../assets/images/vue.svg'
-import imgReact from '../assets/images/react.svg'
-import imgJs from '../assets/images/js.svg'
-import imgTailwind from '../assets/images/tailwind.svg'
-import imgScss from '../assets/images/sass.svg'
+import imgVue from "../assets/images/vue.svg";
+import imgReact from "../assets/images/react.svg";
+import imgJs from "../assets/images/js.svg";
+import imgTailwind from "../assets/images/tailwind.svg";
+import imgScss from "../assets/images/sass.svg";
 
-import imgMoody from '../assets/images/screenshots/moody.png'
-import imgFakturka from '../assets/images/screenshots/fakturka.png'
-import imgQueis from '../assets/images/screenshots/queistal.jpg'
-import imgGiard from '../assets/images/screenshots/giard.jpg'
-import imgTime from '../assets/images/screenshots/time.png'
+import imgMoody from "../assets/images/screenshots/moody.png";
+import imgFakturka from "../assets/images/screenshots/fakturka.png";
+import imgQueis from "../assets/images/screenshots/queistal.jpg";
+import imgTime from "../assets/images/screenshots/time.png";
+import imgHow2own from "../assets/images/screenshots/how2ow.png";
 
 const techStack = [
   {
@@ -149,11 +151,11 @@ const techStack = [
 // screenshots are taken form 1400x967 viewport
 const projects = [
   {
-    img: imgMoody,
-    name: "The Moody Cloud",
-    desc: "Weather app",
-    live: "https://szymon-bosiak.github.io/The_Moody_Cloud/",
-    code: "https://github.com/szymon-bosiak/The_Moody_Cloud",
+    img: imgHow2own,
+    name: "How2OW",
+    desc: "Overwatch 2 game guide",
+    live: "https://how2ow.com",
+    code: "https://github.com/szymon-bosiak/how2ow/",
   },
   {
     img: imgFakturka,
@@ -170,11 +172,11 @@ const projects = [
     code: "https://github.com/szymon-bosiak/queistal",
   },
   {
-    img: imgGiard,
-    name: "giarddesign",
-    desc: "Gardening company's landing page",
-    live: "https://szymon-bosiak.github.io/adRespect/",
-    code: "https://github.com/szymon-bosiak/adRespect",
+    img: imgMoody,
+    name: "The Moody Cloud",
+    desc: "Weather app",
+    live: "https://szymon-bosiak.github.io/The_Moody_Cloud/",
+    code: "https://github.com/szymon-bosiak/The_Moody_Cloud",
   },
   {
     img: imgTime,

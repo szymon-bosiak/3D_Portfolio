@@ -1,7 +1,7 @@
 <template>
   <div class="absolute z-30 h-full w-full xl:hidden"></div>
   <div
-    class="left-[52%] top-[12%] z-10 hidden h-60 w-60 select-none items-center justify-center md:absolute md:flex"
+    class="pointer-events-none left-[52%] top-[12%] z-10 hidden h-60 w-60 select-none items-center justify-center md:absolute md:flex"
   >
     <img src="../assets/images/chat.svg" />
     <p class="absolute text-off-white">
@@ -11,7 +11,7 @@
   </div>
 
   <div
-    class="absolute left-[35%] top-[8%] z-10 flex h-60 w-48 select-none items-center justify-center xxs:left-[42%] xxs:top-[9%] md:hidden"
+    class="pointer-events-none absolute left-[35%] top-[8%] z-10 flex h-60 w-48 select-none items-center justify-center xxs:left-[42%] xxs:top-[9%] md:hidden"
   >
     <img src="../assets/images/chat_mobile.svg" />
     <p class="absolute text-off-white">
@@ -20,7 +20,12 @@
     </p>
   </div>
 
-  <TresCanvas>
+  <TresCanvas
+    @mouseenter="handleMouseEnter"
+    @mousemove="handleMouseMove"
+    @mouseleave="handleMouseLeave"
+    ref="canvasRef"
+  >
     <TresPerspectiveCamera
       :position="[0, 2, 14]"
       :args="[55, 1 / 4, 0.1, 1000]"
@@ -36,6 +41,7 @@
       />
     </Suspense>
   </TresCanvas>
+
   <div>
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -84,36 +90,74 @@
 </template>
 
 <script setup>
-import { shallowRef } from "vue";
-import { TresCanvas, useRenderLoop } from "@tresjs/core";
+import { shallowRef, ref, onUnmounted } from "vue";
+import { TresCanvas } from "@tresjs/core";
 import { GLTFModel } from "@tresjs/cientos";
-import { useMouse } from "@vueuse/core";
-
-
-const { x, y, sourceType } = useMouse();
 
 const cameraRef = shallowRef();
+const canvasRef = shallowRef();
 
-const { onLoop } = useRenderLoop();
+let isMouseInside = ref(false);
+let loopId = null;
 
-onLoop(() => {
-  if (cameraRef.value && sourceType.value === "mouse") {
-    cameraRef.value.value.rotation.y = x.value / 10000 - 0.7;
-    cameraRef.value.value.rotation.x = y.value / 40000 + 0.3;
+const handleMouseEnter = () => {
+  isMouseInside.value = true;
+  startUpdatingRotation();
+};
+
+const handleMouseMove = (event) => {
+  if (!isMouseInside.value) return;
+
+  const { clientX, clientY } = event;
+
+  const x = clientX;
+  const y = clientY;
+
+  console.log(x, y);
+  console.log(isMouseInside.value);
+
+  updateCameraRotation(clientX, clientY);
+};
+
+const handleMouseLeave = () => {
+  isMouseInside.value = false;
+  stopUpdatingRotation();
+
+  // T // Should not be immediately set to default values, needs an animation
+  // onLoop(() => {
+  //   if (cameraRef.value) {
+  //     cameraRef.value.value.rotation.y = -0.7;
+  //     cameraRef.value.value.rotation.x = 0.3;
+  //   }
+  // });
+};
+
+const updateCameraRotation = (x, y) => {
+  if (cameraRef.value) {
+    cameraRef.value.value.rotation.y = x / 10000 - 0.7;
+    cameraRef.value.value.rotation.x = y / 40000 + 0.3;
   }
-});
+};
 
-onLoop(() => {
-  if (cameraRef.value && sourceType.value === "mouse") {
-    cameraRef.value.value.rotation.y += 0.05;
-    cameraRef.value.value.rotation.x += 0.05;
+const startUpdatingRotation = () => {
+  const loop = () => {
+    if (isMouseInside.value) {
+      loopId = requestAnimationFrame(loop);
+    }
+  };
+  if (!loopId) {
+    loopId = requestAnimationFrame(loop);
   }
-});
+};
 
-onLoop(() => {
-  if (cameraRef.value && sourceType.value === "mouse") {
-    cameraRef.value.value.rotation.y -= 0.05;
-    cameraRef.value.value.rotation.x -= 0.05;
+const stopUpdatingRotation = () => {
+  if (loopId) {
+    cancelAnimationFrame(loopId);
+    loopId = null;
   }
+};
+
+onUnmounted(() => {
+  stopUpdatingRotation();
 });
 </script>

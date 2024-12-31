@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav
-      class="absolute z-10 flex h-12 w-full items-center justify-between overflow-x-clip px-6 pt-4 text-off-white"
+      class="absolute z-10 flex h-12 w-full items-center justify-between overflow-x-clip px-6 pt-4 text-off-white pointer-events-none"
     >
       <div>
         <h2 class="mr-[90px] mt-10 select-none text-4xl xxs:mt-0">
@@ -13,12 +13,12 @@
       <div class="relative z-20 md:hidden">
         <div
           @click="toggleMenu()"
-          class="shapeshifter backgroundSVG cursor-pointer bg-transparent"
+          class="shapeshifter backgroundSVG cursor-pointer bg-transparent pointer-events-auto"
           id="hamburger"
         ></div>
       </div>
 
-      <div class="absolute -right-28 -top-24 h-[360px] w-[360px] rounded-full">
+      <div class="absolute -right-28 -top-24 h-[360px] w-[360px] rounded-full pointer-events-none">
         <img
           class="transition-all duration-500"
           :class="{
@@ -48,7 +48,7 @@
         >
           <a
             @click="toggleMenu()"
-            class="relative -top-16 cursor-pointer transition-all duration-100"
+            class="relative -top-16 cursor-pointer transition-all duration-100 pointer-events-auto"
             :class="{
               'left-[280px]': !isMenuActive,
               'delay-200': isMenuActive,
@@ -59,7 +59,7 @@
           >
           <a
             @click="toggleMenu()"
-            class="relative -top-2 cursor-pointer transition-all duration-200"
+            class="relative -top-2 cursor-pointer transition-all duration-200 pointer-events-auto"
             :class="{
               'left-[224px]': !isMenuActive,
               'delay-200': isMenuActive,
@@ -70,7 +70,7 @@
           >
           <a
             @click="toggleMenu()"
-            class="relative top-14 cursor-pointer transition-all duration-300"
+            class="relative top-14 cursor-pointer transition-all duration-300 pointer-events-auto"
             :class="{
               'left-[152px]': !isMenuActive,
               'delay-200': isMenuActive,
@@ -88,42 +88,42 @@
           <a
             @mouseenter="animateAbout"
             @mouseleave="animateAbout"
-            class="font-outline-off-white relative z-30 text-transparent"
+            class="font-outline-off-white relative z-30 text-transparent pointer-events-auto"
             href="#about"
             >About</a
           >
           <p class="absolute bottom-0 top-0 z-10">About</p>
           <hr
             id="aboutButton"
-            class="transform-translate absolute z-20 h-6 w-full border-none transition-all duration-300"
+            class="transform-translate absolute z-20 h-6 w-full border-none pointer-events-none transition-all duration-300"
           />
         </div>
         <div class="relative">
           <a
             @mouseenter="animateProjects"
             @mouseleave="animateProjects"
-            class="font-outline-off-white relative z-30 text-transparent"
+            class="font-outline-off-white relative z-30 text-transparent pointer-events-auto"
             href="#projects"
             >Projects</a
           >
           <p class="absolute bottom-0 top-0 z-10">Projects</p>
           <hr
             id="projectsButton"
-            class="transform-translate absolute z-20 h-6 w-full border-none transition-all duration-300"
+            class="transform-translate absolute z-20 h-6 w-full border-none pointer-events-none transition-all duration-300"
           />
         </div>
         <div class="relative">
           <a
             @mouseenter="animateContact"
             @mouseleave="animateContact"
-            class="font-outline-off-white relative z-30 text-transparent"
+            class="font-outline-off-white relative z-30 text-transparent pointer-events-auto"
             href="#contact"
             >Contact</a
           >
           <p class="absolute bottom-0 top-0 z-10">Contact</p>
           <hr
             id="contactButton"
-            class="transform-translate absolute z-20 h-6 w-full border-none transition-all duration-300"
+            class="transform-translate absolute z-20 h-6 w-full border-none pointer-events-none transition-all duration-300"
           />
         </div>
       </div>
