@@ -93,16 +93,33 @@
 import { shallowRef, ref, onUnmounted } from "vue";
 import { TresCanvas } from "@tresjs/core";
 import { GLTFModel } from "@tresjs/cientos";
+import { gsap } from "gsap";
 
 const cameraRef = shallowRef();
 const canvasRef = shallowRef();
-
 let isMouseInside = ref(false);
 let loopId = null;
 
-const handleMouseEnter = () => {
+const defaultRotation = { x: 0.3, y: -0.7 };
+const targetRotation = ref({ x: 0.3, y: -0.7 });
+
+const handleMouseEnter = (event) => {
+  const { clientX, clientY } = event;
+
+  const initialX = clientX / 10000 - 0.7;
+  const initialY = clientY / 40000 + 0.3;
+
+  targetRotation.value = { x: initialY, y: initialX };
+
   isMouseInside.value = true;
-  startUpdatingRotation();
+
+  gsap.to(cameraRef.value.value.rotation, {
+    x: initialY,
+    y: initialX,
+    duration: 0.2,
+    ease: "power2.out",
+    onComplete: startUpdatingRotation,
+  });
 };
 
 const handleMouseMove = (event) => {
@@ -110,43 +127,32 @@ const handleMouseMove = (event) => {
 
   const { clientX, clientY } = event;
 
-  const x = clientX;
-  const y = clientY;
-
-  console.log(x, y);
-  console.log(isMouseInside.value);
-
-  updateCameraRotation(clientX, clientY);
+  targetRotation.value.y = clientX / 10000 - 0.7;
+  targetRotation.value.x = clientY / 40000 + 0.3;
 };
 
 const handleMouseLeave = () => {
   isMouseInside.value = false;
   stopUpdatingRotation();
-
-  // T // Should not be immediately set to default values, needs an animation
-  // onLoop(() => {
-  //   if (cameraRef.value) {
-  //     cameraRef.value.value.rotation.y = -0.7;
-  //     cameraRef.value.value.rotation.x = 0.3;
-  //   }
-  // });
+  resetCameraRotation();
 };
 
-const updateCameraRotation = (x, y) => {
+const updateRotation = () => {
   if (cameraRef.value) {
-    cameraRef.value.value.rotation.y = x / 10000 - 0.7;
-    cameraRef.value.value.rotation.x = y / 40000 + 0.3;
+    cameraRef.value.value.rotation.x +=
+      (targetRotation.value.x - cameraRef.value.value.rotation.x) * 0.1;
+    cameraRef.value.value.rotation.y +=
+      (targetRotation.value.y - cameraRef.value.value.rotation.y) * 0.1;
+  }
+
+  if (isMouseInside.value) {
+    loopId = requestAnimationFrame(updateRotation);
   }
 };
 
 const startUpdatingRotation = () => {
-  const loop = () => {
-    if (isMouseInside.value) {
-      loopId = requestAnimationFrame(loop);
-    }
-  };
   if (!loopId) {
-    loopId = requestAnimationFrame(loop);
+    loopId = requestAnimationFrame(updateRotation);
   }
 };
 
@@ -154,6 +160,17 @@ const stopUpdatingRotation = () => {
   if (loopId) {
     cancelAnimationFrame(loopId);
     loopId = null;
+  }
+};
+
+const resetCameraRotation = () => {
+  if (cameraRef.value) {
+    gsap.to(cameraRef.value.value.rotation, {
+      x: defaultRotation.x,
+      y: defaultRotation.y,
+      duration: 0.5,
+      ease: "power2.out",
+    });
   }
 };
 
